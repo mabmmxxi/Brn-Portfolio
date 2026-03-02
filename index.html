@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>book</title>
     <link href="https://cdn.jsdelivr.net/npm/dearflip-jquery-flipbook@1.7.20/css/dflip.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
     <style>
-        body { margin: 0; background: #222; }
-        #container { height: 100vh; width: 100vw; }
+        body, html { margin: 0; padding: 0; height: 100%; background-color: #1a1a1a; }
+        #my-flipbook { height: 100vh; width: 100%; }
+        /* Fix for the 'Grey Screen' - forces a 2D fallback if 3D icons fail */
+        .df-container { background-color: #222 !important; }
     </style>
 </head>
 <body>
 
-    <div id="container" class="_df_book" source="./presentation.pdf"></div>
+    <div id="my-flipbook" class="_df_book" source="./presentation.pdf"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dearflip-jquery-flipbook@1.7.20/js/dflip.min.js"></script>
 
     <script>
-        // This setting helps bypass icon 404s by using a standard font
+        // THE FIX: This tells the flipbook to ignore missing icons and 3D graphics
+        // and just show the book in a stable 2D format.
         var dflip_options = {
-            scrollWheel: true,
-            overwritePDFOutline: true
+            webgl: false, 
+            overwritePDFOutline: true,
+            isDisableFontFace: true
         };
     </script>
 </body>
