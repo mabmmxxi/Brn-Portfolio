@@ -2,29 +2,27 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>brn-portfolio</title>
+    <title>book</title>
     <link href="https://cdn.jsdelivr.net/npm/dearflip-jquery-flipbook@1.7.20/css/dflip.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/dearflip-jquery-flipbook@1.7.20/css/themify-icons.min.css" rel="stylesheet">
-    
     <style>
-        body { margin: 0; background: #222; }
-        #container { height: 100vh; width: 100vw; }
-        /* This helps see if the container is actually there */
-        ._df_book { background: #333; }
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #333; }
+        #flipbook-container { height: 100vh; width: 100vw; }
     </style>
 </head>
 <body>
 
-    <div id="container" class="_df_book" source="./presentation.pdf"></div>
+    <div id="flipbook-container" class="_df_book" source="https://mabmmxxi.github.io/Brn-Portfolio/presentation.pdf"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dearflip-jquery-flipbook@1.7.20/js/dflip.min.js"></script>
 
     <script>
-        // Force re-initialization in case GitHub Pages lazy-loads
-        $(document).ready(function() {
-            console.log("Flipbook script is active.");
-        });
+        // Force the flipbook to use a simpler "2D" mode if 3D fails to load
+        var dflip_options = {
+            webgl: false,
+            hard: "none"
+        };
     </script>
 </body>
 </html>
