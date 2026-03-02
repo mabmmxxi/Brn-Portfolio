@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My Flipbook</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    
+    <link href="https://cdn.jsdelivr.net/npm/dearflip-jquery-flipbook@1.7.20/css/dflip.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; background: #111; overflow: hidden; }
+        #my-book-container { height: 100vh; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <div id="my-book-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dearflip-jquery-flipbook@1.7.20/js/dflip.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // This manually starts the book after the page is fully ready
+            var pdfUrl = "./presentation.pdf";
+            var options = {
+                webgl: false, // Forces stable 2D mode
+                hard: "none",
+                isDisableFontFace: true
+            };
+            
+            // Start the flipbook
+            $("#my-book-container").dfFlipbook(pdfUrl, options);
+            console.log("Flipbook engine manually triggered for: " + pdfUrl);
+        });
+    </script>
+</body>
+</html>
