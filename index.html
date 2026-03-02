@@ -1,39 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>My Flipbook</title>
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    
-    <link href="https://cdn.jsdelivr.net/npm/dearflip-jquery-flipbook@1.7.20/css/dflip.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Flipbook Portfolio</title>
+
+    <link href="https://cdn.jsdelivr.net/gh/alrin0000/dearflip-jquery-flipbook@master/dflip/css/dflip.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/gh/alrin0000/dearflip-jquery-flipbook@master/dflip/css/themify-icons.min.css" rel="stylesheet" type="text/css">
+
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; background: #111; overflow: hidden; }
-        #my-book-container { height: 100vh; width: 100%; }
+        body { margin: 0; padding: 0; background-color: #333; }
+        /* This centers the book on your screen */
+        #my-book-container {
+            width: 90%;
+            height: 90vh;
+            margin: 5vh auto;
+        }
     </style>
 </head>
 <body>
 
-    <div id="my-book-container"></div>
+    <div id="my-book-container">
+        <div class="_df_book" 
+             source="./presentation.pdf" 
+             webgl="true" 
+             id="portfolio_flipbook">
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dearflip-jquery-flipbook@1.7.20/js/dflip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alrin0000/dearflip-jquery-flipbook@master/dflip/js/dflip.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            // This manually starts the book after the page is fully ready
-            var pdfUrl = "./presentation.pdf";
-            var options = {
-                webgl: false, // Forces stable 2D mode
-                hard: "none",
-                isDisableFontFace: true
-            };
-            
-            // Start the flipbook
-            $("#my-book-container").dfFlipbook(pdfUrl, options);
-            console.log("Flipbook engine manually triggered for: " + pdfUrl);
-        });
-    </script>
 </body>
 </html>
